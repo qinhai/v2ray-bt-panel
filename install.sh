@@ -278,7 +278,7 @@ modify_nginx_port() {
     sed -i "/ssl http2;$/c \\\tlisten ${port} ssl http2;" ${nginx_conf}
     sed -i "3c \\\tlisten [::]:${port} http2;" ${nginx_conf}
     judge "V2ray port 修改"
-    [ -f ${v2ray_qr_config_file] && sed -i "/\"port\"/c \\  \"port\": \"${port}\"," ${v2ray_qr_config_file}
+    [ -f ${v2ray_qr_config_file} ] && sed -i "/\"port\"/c \\  \"port\": \"${port}\"," ${v2ray_qr_config_file}
     echo -e "${OK} ${GreenBG} 端口号:${port} ${Font}"
 }
 
@@ -621,8 +621,8 @@ ssl_judge_and_install() {
             rm -rf /data/v2ray.crt /data/v2ray.key
             echo -e "${OK} ${GreenBG} 已删除 ${Font}"
             ;;
-        *) ;;
-
+        *) 
+            ;;
         esac
     fi
 
@@ -676,8 +676,8 @@ uninstall_all() {
             rm -rf $nginx_systemd_file
             echo -e "${OK} ${Green} 已卸载 Nginx ${Font}"
             ;;
-        *) ;;
-
+        *) 
+            ;;
         esac
     fi
     [[ -d $v2ray_conf_dir ]] && rm -rf $v2ray_conf_dir
@@ -805,8 +805,8 @@ update_sh() {
             echo -e "${OK} ${GreenBG} 更新完成 ${Font}"
             exit 0
             ;;
-        *) ;;
-
+        *) 
+            ;;
         esac
     else
         echo -e "${OK} ${GreenBG} 当前版本为最新版本 ${Font}"
